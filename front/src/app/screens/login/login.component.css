@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    border: 2px solid black;
+    box-shadow: 10px 5px 20px black;
+    background-color: aliceblue;
+    color: black;
+}
+.topCard{
+  
+    display: flex;
+   justify-content: center;
+}
+
+.imageLogo{
+    margin-left: 15%;
+    width: 50%;
+    height: 50%;
+}
+
+.controls{
+    width: 180px;
+    height: 35px;
+    color: black;
+    border-radius: 5px;
+    border: 3px solid black;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+.displayFrom{
+    display: block !important;
+}
+
+.labelInp{
+    color: black;
+    margin-bottom: 40px !important;
+}
+
+.button{
+    background-color: aliceblue;
+    border: 1px solid rgb(153, 151, 151);
+    border-radius: 5px;
+    color: rgb(104, 103, 103);
+    padding: 1px;
+}

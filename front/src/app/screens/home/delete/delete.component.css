@@ -1,0 +1,8 @@
+.global{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonsMar{
+    margin: 5px;
+}

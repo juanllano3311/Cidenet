@@ -1,0 +1,85 @@
+.navb{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(109, 181, 245);;
+}
+
+.icon{
+    width: 60px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.but{
+    border: 0.1px solid black !important;
+    margin: 4px;
+}
+
+section{
+    display: flex; 
+    justify-content: center;
+    margin-top: 30px;
+    height: 80%;
+   
+}
+
+.sectionForm{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    border: 1px solid black;
+    box-shadow: 10px 5px 20px black !important;
+    background-color: aliceblue;
+}
+
+.labelInp{
+    color: black;
+    margin-bottom: 40px !important;
+}
+
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+
+  .FormStyle{
+    margin-top: 2%;
+    text-align: center;
+  }
+
+  ::ng-deep .mat-form-field{
+    border: 1px solid black;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px !important;
+     margin: 3px;
+     width: 100%;
+  }
+
+  ::ng-deep .mat-form-field-infix{
+    text-align: center;
+  }
+  ::ng-deep .mat-form-field-suffix .mat-datepicker-toggle-default-icon {
+    color: black
+ }
+
+ ::ng-deep .mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
+    color: black;
+}
+
+::ng-deep .mat-select-value{
+    color: black;
+}
+
+.typeLetters{
+ text-transform: uppercase !important;
+}

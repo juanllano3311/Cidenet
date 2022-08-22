@@ -1,0 +1,106 @@
+
+<section>
+    <div class="sectionForm">
+      <form [formGroup]="form" class="FormStyle">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width controlsInput" style="color: black !important;">
+                <mat-label class="labelInp">Primer Apellido</mat-label>
+                <input matInput class="typeLetters" type="text" formControlName="firstLastName" 
+                (input)="form.get('firstLastName')?.setValue(form.get('firstLastName')?.value.toUpperCase())" [(ngModel)]="firstLastname"> 
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" style="color: black !important;">
+                <mat-label class="labelInp">Segundo Apellido</mat-label>
+                <input matInput class="typeLetters" type="text" formControlName="secondtLastName"  
+                (input)="form.get('secondtLastName')?.setValue(form.get('secondtLastName')?.value.toUpperCase())">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width controlsInput" style="color: black !important;">
+                <mat-label class="labelInp">Primer Nombre</mat-label>
+                <input matInput type="text" class="typeLetters" formControlName="firstName"
+                (input)="form.get('firstName')?.setValue(form.get('firstName')?.value.toUpperCase())" [(ngModel)]="firstName">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" style="color: black !important;">
+                <mat-label class="labelInp">Otros Nombres</mat-label>
+                <input matInput type="text" class="typeLetters" formControlName="othersNames"
+                (input)="form.get('othersNames')?.setValue(form.get('othersNames')?.value.toUpperCase())">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" style="color: black !important;">
+                <mat-label class="labelInp">Pais</mat-label>
+                <mat-select formControlName="country"> 
+                  <mat-option *ngFor="let country of countries" [value]= "country.value" >
+                    {{country.viewValue}}
+                  </mat-option > 
+                </mat-select > 
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" style="color: black !important;">
+                <mat-label class="labelInp">Tipo de Identificación</mat-label>
+                <mat-select formControlName="typeId"> 
+                  <mat-option *ngFor="let type of typeId" [value]= "type.value" >
+                    {{type.viewValue}}
+                  </mat-option > 
+                </mat-select > 
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" style="color: black !important;">
+                <mat-label class="labelInp">Identificacion</mat-label>
+                <input matInput type="text" formControlName="idNumber">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+  
+        <p>
+          <button (click)="generate()" style="margin-right: 2px;">Generar</button>  
+          <button (click)="validate()" style="margin-left: 2px;">validad</button>
+          <mat-form-field class="example-full-width" style="color: black !important;">
+            <mat-label class="labelInp">Email</mat-label>
+            <input matInput type="email" formControlName="email">
+          </mat-form-field>
+        </p>
+  
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="fill">
+                <mat-label class="labelInp">Ultima Fecha Edición</mat-label>
+                <input style="width: 100%; color: black;" matInput [matDatepicker]="dp1" [max]="maxDate"
+                formControlName="registrationDate">
+                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                <mat-datepicker #dp1></mat-datepicker>
+              </mat-form-field>
+            <td>
+              <mat-form-field class="example-full-width" style="color: black !important;">
+                <mat-label class="labelInp">Área</mat-label>
+                <mat-select formControlName="area"> 
+                  <mat-option *ngFor="let area of areas" [value]= "area.value" >
+                    {{area.viewValue}}
+                  </mat-option > 
+                </mat-select > 
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>  
+        <button mat-raised-button style="background-color: rgb(109, 181, 245);" (click)="onSave()">Enviar</button>
+      </form>
+    </div>
+  </section>

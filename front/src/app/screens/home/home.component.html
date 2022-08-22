@@ -1,0 +1,95 @@
+<mat-toolbar color="secundary" class="navb">
+  <img class="icon" src="../../../assets/icons/cidenetLogo.png" alt="Logo">
+  <span class="example-spacer"></span>
+  <button mat-button class="example-icon favorite-icon but" aria-label="Example icon-button with heart icon">
+    Lista
+    <mat-icon>assignment</mat-icon>
+  </button>
+  <button mat-button class="example-icon favorite-icon but" aria-label="Example icon-button with heart icon "
+    [routerLink]="['/user']">
+    Usuarios
+    <mat-icon>supervised_user_circle</mat-icon>
+  </button>
+  <button mat-button class="example-icon favorite-icon but" aria-label="Example icon-button with heart icon"
+    (click)="out()">
+    Salir
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<section>
+
+
+  <thead class="thead">
+    <th class="maxWidthTh">
+      <input matInput class="typeLetters" type="text" placeholder="primer apellido..." name="firstLastNameFilter" [(ngModel)]="firstLastNameFilter">
+    </th>
+    <th class="maxWidthTh">
+      <input matInput class="typeLetters" type="text" placeholder="segundo apellido..." name="secondtLastNameFilter" [(ngModel)]="secondtLastNameFilter">
+    </th>
+    <th class="maxWidthTh">
+      <input matInput class="typeLetters" type="text" placeholder="primer nombre..." name="firstNameFilter" [(ngModel)]="firstNameFilter">
+    </th>
+    <th class="maxWidthTh">
+      <input matInput class="typeLetters" type="text" placeholder="otros nombres..." name="othersNamesFilter" [(ngModel)]="othersNamesFilter">
+    </th>
+    <th class="maxWidthTh">
+      <input matInput class="typeLetters" type="text" placeholder="pais..." name="countryFilter" [(ngModel)]="countryFilter">
+    </th>
+    <th class="maxWidthTh">
+      <input matInput class="typeLetters" type="text" placeholder="tipo identificación..." name="typeIdFilter" [(ngModel)]="typeIdFilter">
+    </th>
+    <th class="maxWidthTh">
+      <input matInput class="typeLetters" type="text" placeholder="número identificación..." name="idNumberFilter" [(ngModel)]="idNumberFilter">
+    </th>
+    <th class="maxWidthTh">
+      <input matInput class="typeLetters" type="text" placeholder="email..." name="emailFilter" [(ngModel)]="emailFilter">
+    </th>
+  </thead>
+</section>
+
+<section>
+
+  <table>
+    <thead>
+      <th>Primer Apellido</th>
+      <th>Segundo Apellido</th>
+      <th>Primer Nombre</th>
+      <th>Otros Nombres</th>
+      <th>Pais</th>
+      <th>Tipo de Identidición</th>
+      <th>Identifición</th>
+      <th>email</th>
+      <th>Acciones</th>
+      <hr>
+    </thead>
+    <tbody *ngFor="let item of members 
+    | paginate: { itemsPerPage: 10, currentPage: page}
+    | firstLastName: firstLastNameFilter
+    | secondtLastName: secondtLastNameFilter
+    | firstName: firstNameFilter
+    | othersNames: othersNamesFilter
+    | country: countryFilter
+    | typeId: typeIdFilter
+    | idNumber: idNumberFilter
+    | email: emailFilter">
+      <td>{{item.firstLastName}}</td>
+      <td>{{item.secondtLastName}}</td>
+      <td>{{item.firstName}}</td>
+      <td>{{item.othersNames}}</td>
+      <td>{{item.country}}</td>
+      <td>{{item.typeId}}</td>
+      <td>{{item.idNumber}}</td>
+      <td>{{item.email}}</td>
+      <td>
+        <button mat-button (click)="editMember(item.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="deleteMember(item.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tbody>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </table>
+</section>
